@@ -13,8 +13,3 @@ class Post(db.Model):
     author_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     author = db.relationship('User', backref='posts')
 
-# Many-to-many relationship for connections
-connections = db.Table('connections',
-    db.Column('user_id', db.Integer, db.ForeignKey('user.id')),
-    db.Column('connected_user_id', db.Integer, db.ForeignKey('user.id'))
-)
